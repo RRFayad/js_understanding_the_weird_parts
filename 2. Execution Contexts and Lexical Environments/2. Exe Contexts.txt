@@ -1,0 +1,32 @@
+7. Conceptual Aside: Syntax Parsers, Execution Contexts, and Lexical Environments
+
+    - Syntax Parsers
+        A program that reads your code and determines what it does and if its grammar is valid!
+
+       * Compiler - The intermediate program that translates my code to Computer instructions
+    
+    - Lexical Environments
+        - Where that code snippets is written 
+
+    - Execution Contexts
+        - A wrapper to help manage the code that is running
+            - There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain tings beyond what I`ve written.
+
+8. Conceptual Aside: Name/Value Pairs and Objects
+
+    - Name/Value Pair:
+        - A name which maps to a Unique Value
+            - The name may be defined more than once, but only can have one value in any given context
+             * That value may be other collections of name/valua pairs
+
+    - Object:
+        - A collection of name value pairs
+            * Which means a vlue can nest other name value pairs
+        * ! It's just that simple!
+
+10. The Global Environment and The Global Object
+
+ 
+
+        
+    
