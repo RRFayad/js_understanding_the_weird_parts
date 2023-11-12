@@ -1,8 +1,8 @@
-b();
-
+var a = "Ihaa";
 console.log(a);
-var a = "Hello world!";
 
-function b() {
-  console.log("called b");
+if (a === undefined) {
+  console.log("a is Undefined");
+} else {
+  console.log("a is defined!");
 }
