@@ -1,3 +1,8 @@
-const a = "Hello world!";
+b();
 
-function b() {}
+console.log(a);
+var a = "Hello world!";
+
+function b() {
+  console.log("called b");
+}

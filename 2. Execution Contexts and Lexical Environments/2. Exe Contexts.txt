@@ -37,6 +37,26 @@
         - Not inside a function
             * A const in the file (outside a function is in the execution context)
             * Which means I can console.log(window.variableName)
+    
+        EXECUTION CONTEXT:
+            Contains:
+                Global Object (window for browsers)
+                'this' (reffers to the global object)
+                Outer Environment
+                Code
+
+11. The Execution Context - Creation and Hoisting
+
+    - Anthony showed the hoisting
+        - How we can call a function and a var before it's declared
+
+    - That's because of the CREATION PHASE (which creates the execution context)
+        - It Sets up Memory Space for vars and functions (hoisting)
+
+        - For function it's saved at once;
+        - For variables, it's saved a space in the memory (it's value will only be known when it reaches the code)
+
+    - That's why is a bad practice to rely on the hosting
         
 
         
