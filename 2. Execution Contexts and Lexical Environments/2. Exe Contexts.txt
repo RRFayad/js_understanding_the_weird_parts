@@ -1,62 +1,63 @@
-7. Conceptual Aside: Syntax Parsers, Execution Contexts, and Lexical Environments
 
-    - Syntax Parsers
+7. Conceptual Aside
+
+    - SYNTAX PARSERS
         A program that reads your code and determines what it does and if its grammar is valid!
 
        * Compiler - The intermediate program that translates my code to Computer instructions
     
-    - Lexical Environments
+    - LEXICAL ENVIRONMENTS
         - Where that code snippets is written 
 
-    - Execution Contexts
+    - EXECUTION CONTEXT
         - A wrapper to help manage the code that is running
-            - There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain tings beyond what I`ve written.
+            - There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what I`ve written.
 
-8. Conceptual Aside: Name/Value Pairs and Objects
+8. Conceptual Aside
 
-    - Name/Value Pair:
+    - NAME/VALUE PAIR:
         - A name which maps to a Unique Value
             - The name may be defined more than once, but only can have one value in any given context
              * That value may be other collections of name/valua pairs
 
-    - Object:
+    - OBJECT:
         - A collection of name value pairs
             * Which means a vlue can nest other name value pairs
         * ! It's just that simple!
 
 10. The Global Environment and The Global Object
 
-    - An execution context is created, creating the Global Environment and it creates 2 things for us:
+    - EXECUTION CONTEXT
+        An execution context is created, creating the Global Environment and it creates 2 things for us:
+            1. GLOBAL OBJECT
+                *window for the Browser
+            2. 'THIS'
 
-        1. Global Object
-            *window for the Browser
-
-        2. 'this'
-
-    *GLOBAL:
-        - Not inside a function
+    - GLOBAL:
+        Not inside a function
             * A const in the file (outside a function is in the execution context)
             * Which means I can console.log(window.variableName)
     
-        EXECUTION CONTEXT:
-            Contains:
-                Global Object (window for browsers)
-                'this' (reffers to the global object)
-                Outer Environment
-                Code
+    - EXECUTION CONTEXT:
+        Contains:
+            Global Object (window for browsers)
+            'this' (reffers to the global object)
+            Outer Environment
+            Code
 
 11. The Execution Context - Creation and Hoisting
 
     - Anthony showed the hoisting
         - How we can call a function and a var (undefined) before it's declared
 
-    - That's because of the CREATION PHASE (which creates the execution context)
+    - CREATION PHASE
+        - which creates the execution context
         - It Sets up Memory Space for vars and functions (hoisting)
 
     - HOISTING
         - Functions and Variables set up (vars as undefined);
 
-    - That's why is a bad practice to rely on the hosting
+        - That's why is a bad practice to rely on the hosting (it will be harder to debug)
     
 12. Conceptual Aside: Javascript and 'undefined'
 
@@ -64,6 +65,94 @@
         - If we declare it, it get undefined value
     
     - Never set anything to undefined! It would make no logic sense
+
+13. The Execution Context - Code Execution
+
+    - There are 2 phases when executing code:
+        CREATION PHASE
+        EXECUTION PHASE
+            Now it runs my code line by line
+
+14. Conceptual Aside: Single Threaded, Synchronous Execution
+    
+    - SINGLE THREADED
+        - One command is being executed at a time;
+    
+    - SYCHORNOUS
+        - One at a time (in order)
+    
+    - JavaScript is Single Threaded, Synchronous execution in its behavior
+
+15. Function Invocation and the Execution Stack
+
+    -   INVOCATION
+        - Running a function
+            - By using ()
+    
+    - When a function is invocated it's created a new execution context, and put on the EXECUTION STACK 
+        - Then each function is ran and popped off the stack
+    
+16. Functions, Context, and Variable Environments
+
+    - VARIABLE ENVIRONMENT
+        - Where the variable 'lives'
+    
+    - Imagine this code snippet:
+        function b() {
+            var myVar
+        };
+        
+        function a() {
+            var myVar = 2;
+            b();
+        };
+        
+        var myVar = 1;
+        a();
+
+    - Whenever each functoin is INVOKED, it creates its own Execution Context, which has it's own var
+
+THE SCOPE CHAIN
+        - Only when a variable is not found in that Exection COntext, it will be looked for in the previous bigger context (in this case, the global)
+            * If we changed the above b function code for this:
+                function b() {
+                    console.log(myVar)
+                };
+            It consoles 1 (because it looked in the 1 level up context - the OUTER ENVIRONMENT)
+
+        - This whole chain is the Scope Chain
+
+18. Scope, ES6, and let
+    
+    - SCOPE
+        Where a variable is available in the code
+    
+    - ES6
+        - let
+            - block scoping
+            - Reurns error before it's declaration
+
+19. What abot Asynschopnous callbacks?
+
+    - ASYNCHRONOUS:   
+        - More than one at a time;
+    
+    - JavaScript Engine is synchronous
+        - It's interaction with outer things creates asynchonous tasks, such as:
+            - the Rendering Engine
+            - HTTP Requests
+        
+    - JavaScript Engine, also brings the Event Queue (Clicks, HTTP requests updates, etc)
+        - The Event Queue will be checked when thje execution contexts stack is empty
+        - Than it checks if a function needs to be run from an event
+
+
+    
+    
+        
+
+
+    
 
         
     
